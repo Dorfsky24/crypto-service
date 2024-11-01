@@ -1,0 +1,58 @@
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: crypto-service
+#   labels:
+#     app: crypto-service
+# spec:
+#   replicas: 3
+#   selector:
+#     matchLabels:
+#       app: crypto-service
+#   template:
+#     metadata:
+#       labels:
+#         app: crypto-service
+#     spec:
+#       containers:
+#         - name: crypto-service
+#           image: your_username/crypto_service:latest  # Update with your image name
+#           ports:
+#             - containerPort: 5000
+#           env:
+#             - name: ENV_VAR_NAME
+#               value: "your_value"  # Add any necessary environment variables
+
+
+
+############################################################################################
+
+
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crypto-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: crypto-service
+  template:
+    metadata:
+      labels:
+        app: crypto-service
+    spec:
+      containers:
+      - name: crypto-service
+        image: <your-container-registry>/crypto-service:latest
+        ports:
+        - containerPort: 5000
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 200m
+            memory: 256Mi
