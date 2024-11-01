@@ -92,9 +92,9 @@ pipeline {
         stage('Push Image') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'docker-registry', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
-                    sh 'docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD} <your-container-registry>'
-                    sh 'docker tag crypto-service:latest <your-container-registry>/crypto-service:latest'
-                    sh 'docker push <your-container-registry>/crypto-service:latest'
+                    sh 'docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD} abbeydauda'
+                    sh 'docker tag crypto-service:latest abbeydauda/crypto-service:latest'
+                    sh 'docker push abbeydauda/crypto-service:latest'
                 }
             }
         }
@@ -110,12 +110,12 @@ pipeline {
     }
     post {
         failure {
-            mail to: 'team@example.com',
+            mail to: 'abbeydauda20@gmail.com',
                  subject: 'Crypto Service Deployment Failed',
                  body: 'Deployment failed, please check Jenkins logs.'
         }
         success {
-            mail to: 'team@example.com',
+            mail to: 'abbeydauda20@gmail.com.com',
                  subject: 'Crypto Service Deployment Successful',
                  body: 'Deployment successful!'
         }
