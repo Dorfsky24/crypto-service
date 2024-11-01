@@ -115,7 +115,7 @@ pipeline {
                  body: 'Deployment failed, please check Jenkins logs.'
         }
         success {
-            mail to: 'abbeydauda20@gmail.com.com',
+            mail to: 'abbeydauda20@gmail.com',
                  subject: 'Crypto Service Deployment Successful',
                  body: 'Deployment successful!'
         }
